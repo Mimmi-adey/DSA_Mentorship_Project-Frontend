@@ -23,8 +23,8 @@ function Login() {
     const backendUrl=context?.backendUrl || ""
     const [email, setEmail] = useState<string>("")
     const [password, setPassword] = useState<string>("")
-    const [isLoading, setIsLoading] = useState<boolean>(false)
-    const [error, setError] = useState<string>("")
+    const [, setIsLoading] = useState<boolean>(false)
+    const [, setError] = useState<string>("")
  
     const submit = async (e: React.FormEvent<HTMLFormElement>) =>{
         e.preventDefault()
@@ -35,7 +35,7 @@ function Login() {
                 email,password
             })
             if (response.status === 200) {
-                navigate("/")
+                navigate()
             }
             // if (response.data.user.role === "admin") {
             //     navigate("/admin")
