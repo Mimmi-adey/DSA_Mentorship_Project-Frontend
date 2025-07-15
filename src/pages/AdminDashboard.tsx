@@ -8,7 +8,6 @@ import {
   MenteeList,
 } from "../component/AdminTabs";
 import axios from "axios";
-import { useNavigate } from 'react-router-dom';
 
 const AdminDashboard = () => {
   const [activeTab, setActiveTab] = useState("overview");
@@ -17,7 +16,6 @@ const AdminDashboard = () => {
   const [totalAssignments, setTotalAssignments] = useState(0);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState("");
-  const navigate = useNavigate();
 
   const token = localStorage.getItem("adminToken");
 
