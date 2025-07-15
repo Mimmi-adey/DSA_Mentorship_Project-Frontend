@@ -34,9 +34,11 @@ function Home() {
             className='w-full h-[500px] object-cover brightness-90'
         />
         <div className='absolute bottom-8 left-1/2 transform -translate-x-1/2'>
-            <h1>Empowering Connections</h1>
+          <h1 className='text-white text-3xl md:text-5xl font-bold bg-emerald-800 bg-opacity-60 px-6 py-3 rounded-xl shadow-lg'>
+            Empowering Connections
+          </h1>
         </div>
-        </div>
+      </div>
 
 
       {/* Call to Action */}
