@@ -1,5 +1,3 @@
-import React from "react";
-
 export const PendingMentors = () => (
   <div className="bg-white p-6 rounded-xl shadow">
     <h2 className="text-xl font-semibold mb-2">Pending Mentors</h2>
