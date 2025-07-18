@@ -2,7 +2,6 @@ import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useShopContext } from "../context";
 import type { FormEvent } from "react";
-import axios from "axios";
 
 export default function Register() {
   const navigate = useNavigate();
