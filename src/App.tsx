@@ -30,6 +30,7 @@ function App() {
         <Route path="/profile" element={<Profile />} />
         <Route path="/forgot-password" element={<ForgotPassword />} />
         <Route path="/register" element={<Register />} />
+        <Route path="/complete-profile" element={<CompleteProfile />} />
 
         {/* ✅ Admin Routes */}
         <Route path="/admin/dashboard" element={
@@ -45,7 +46,6 @@ function App() {
           <Route path="sessions" element={<MentorSessions />} />
           <Route path="profile" element={<MentorProfile />} />
         </Route>
-        <Route path="/complete-profile" element={<CompleteProfile />} />
 
       </Routes>
 
@@ -54,5 +54,7 @@ function App() {
     </>
   );
 }
+
+<Route path="*" element={<div>404 - Page Not Found</div>} />
 
 export default App;

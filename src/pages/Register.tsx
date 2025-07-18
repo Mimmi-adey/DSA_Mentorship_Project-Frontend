@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useShopContext } from "../context";
 import type { FormEvent } from "react";
+import axios from "axios";
 
 export default function Register() {
   const navigate = useNavigate();
@@ -50,15 +51,6 @@ export default function Register() {
     console.error(err.message);
     setError(err.message || "Something went wrong");
   }};
-
-  fetch("http://localhost:8000/api/auth/register", {
-  method: "POST",
-  headers: {
-    "Content-Type": "application/json",
-  },
-  body: JSON.stringify(formData),
-});
-
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-green-400 via-yellow-200 to-blue-300 animate-gradient-x bg-[length:300%_300%] flex flex-col items-center justify-center px-4">

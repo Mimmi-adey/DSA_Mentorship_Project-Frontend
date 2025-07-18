@@ -49,44 +49,60 @@ const CompleteProfile = () => {
   };
 
   const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
+  e.preventDefault();
 
-    const token = localStorage.getItem("token");
-    const userId = localStorage.getItem("userId");
+  const token = localStorage.getItem("token");
+  const userId = localStorage.getItem("userId");
 
-    if (!token || !userId) {
-      alert("You must be logged in");
-      return;
+  if (!token || !userId) {
+    alert("You must be logged in");
+    return;
+  }
+
+  try {
+    const completeProfileRes = await fetch(`${backendUrl}/api/profile/complete`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${token}`,
+      },
+      credentials: "include",
+      body: JSON.stringify(formData),
+    });
+
+    if (!completeProfileRes.ok) {
+      const error = await completeProfileRes.json();
+      alert(error.message || "Failed to complete profile");
+      return;}
+
+    const res = await fetch(`${backendUrl}/api/editProfile/${userId}`, {
+      method: "PUT",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${token}`,},
+        credentials: 'include',
+      body: JSON.stringify({
+        name: formData.name,
+        bio: formData.bio,
+        skills: formData.skills,
+        goal: formData.goals,
+      }),
+    });
+
+    const data = await res.json();
+    if (res.ok) {
+      navigate("/dashboard");
+    } else {
+      alert(data.message || "Profile update failed");
     }
-
-    try {
-      const res = await fetch(`${backendUrl}/api/editProfile/${userId}`, {
-        method: "PUT",
-        headers: {
-          "Content-Type": "application/json",
-          Authorization: `Bearer ${token}`,
-        },
-        body: JSON.stringify({
-          name: formData.name,
-          bio: formData.bio,
-          skills: formData.skills,
-          goal: formData.goals,
-        }),
-      });
-
-      const data = await res.json();
-      if (res.ok) {
-        navigate("/dashboard");
-      } else {
-        alert(data.message || "Profile update failed");
-      }
-    } catch (err) {
-      console.error("Complete profile error:", err);
-      alert("Something went wrong");
-    }
-  };
+  } catch (err) {
+    console.error("Complete profile error:", err);
+    alert("Something went wrong");
+  }};
 
   return (
+    <div className='min-h-screen bg-gradient-to-br from-green-400 via-yellow-200 to-blue-300 animate-gradient-x bg-[length:300%_300%] flex items-center w-full px-4'>
+
     <div className="flex flex-col items-center justify-center min-h-screen bg-gray-50 px-4">
       <div className="w-full max-w-2xl bg-white rounded-2xl shadow-md p-8">
         <h2 className="text-2xl font-bold text-center mb-4">Complete Your Profile</h2>
@@ -177,6 +193,7 @@ const CompleteProfile = () => {
           </button>
         </form>
       </div>
+    </div>
     </div>
   );
 };

@@ -57,7 +57,7 @@ function Login() {
       navigate("/admin/dashboard");
     } else if (user.role === "mentor") {
       if (!isProfileComplete) {
-        navigate("/profile/edit");
+        navigate('/complete-profile');
       } else {
         navigate("/mentor/dashboard");
       }
