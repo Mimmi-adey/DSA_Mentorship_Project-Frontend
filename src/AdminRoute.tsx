@@ -1,4 +1,3 @@
-// AdminRoute.tsx
 import { Navigate } from 'react-router-dom';
 import type { ReactElement } from 'react';
 
