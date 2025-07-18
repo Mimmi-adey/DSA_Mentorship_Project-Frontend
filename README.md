@@ -64,7 +64,7 @@ npm run dev
 
 ```env
 PORT=8000
-MONGO_URI="mongodb+srv://adeyemomariamtobiloba:AXl70Byrge2HdpQZ@cluster0.z2al8y0.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0"
+MONGO_URI=""
 JWT_SECRET=your_jwt_secret
 CLIENT_URL=http://localhost:3000
 
