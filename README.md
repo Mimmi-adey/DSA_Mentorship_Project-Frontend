@@ -1,69 +1,98 @@
-# React + TypeScript + Vite
+# DSA Mentorship Project
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Welcome to the **DSA Mentorship Project** — an interactive and inclusive space designed to bridge the gap between aspiring learners and experienced mentors in the field of **Lifestyle, Studies & Tech**.
 
-Currently, two official plugins are available:
+Whether you're preparing for technical interviews or trying to master competitive programming, this platform is built to match you with the right guide or learner on your journey.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+---
 
-## Expanding the ESLint configuration
+## Features
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+-  **Secure Authentication**
+  - User registration and login with role selection: `Mentor` or `Mentee`
+  - Protected routes using JWT & HTTP-only cookies
 
-```js
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+-  **Complete Profile Flow**
+  - After signing up, users are redirected to complete their profile before accessing the dashboard
+  - Customize skills, experience level, goals, and availability
 
-      // Remove tseslint.configs.recommended and replace with this
-      ...tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      ...tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      ...tseslint.configs.stylisticTypeChecked,
+-  **Mentorship Matching (coming soon!)**
+  - Smart algorithm to pair mentees with mentors based on interests, goals, and skill level
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+-  **Dashboard**
+  - Personalized view based on user role
+  - Mentor tools for managing mentees
+  - Mentee tools for tracking sessions and feedback
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+-  **Deployed Frontend & Backend**
+  - Frontend: React + TailwindCSS (hosted on Netlify)
+  - Backend: Express + MongoDB (hosted on Render)
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+---
 
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+## Tech Stack
+
+| Layer     | Tech                                 |
+|-----------|--------------------------------------|
+| Frontend  | React + Vite, TypeScript, Axios      |
+| Backend   | Node.js, Express.js, dotenv          |
+| Routing   | React Router                         |
+| Styling   | Tailwind CSS                         |
+| Database  | MongoDB with Mongoose                |
+| Auth      | JWT + HTTP-only cookies              |
+| Hosting   | Netlify (Frontend), Render (Backend) |
+
+---
+
+## Installation (Local Dev)
+
+### Backend
+```bash
+git clone https://github.com/Mimmi-adey/DSA_Mentorship_Project-Backend.git
+npm install
+npm run dev
+
+API Documentation (Auth Endpoints)
+All endpoints are prefixed with:  
+`https://dsa-mentorship-project-backend.onrender.com/api/auth`
+
+Frontend
+git clone https://github.com/Mimmi-adey/DSA_Mentorship_Project-Frontend.git
+cd dsa-mentorship-frontend
+npm install
+npm run dev
+
+```env
+PORT=8000
+MONGO_URI="mongodb+srv://adeyemomariamtobiloba:AXl70Byrge2HdpQZ@cluster0.z2al8y0.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0"
+JWT_SECRET=your_jwt_secret
+CLIENT_URL=http://localhost:3000
+
+Live Demo
+Frontend: https://mariamadeyemo-mentormatch-dsaproject.netlify.app/
+Backend: https://dsa-mentorship-project-backend.onrender.com
+
+How It Works
+Register with your email and choose your role (Mentor or Mentee)
+Complete your profile before gaining access to the dashboard
+Get matched with a mentor/mentee based on your goals (coming soon!)
+Collaborate  and grow with DSA challenges, sessions, and progress tracking
+
+Folder Structure (Frontend)
+src/
+├── assets/             # Images, fonts, etc.      
+├── components/         # Reusable UI components
+├── layouts/            # Page-level layout wrappers
+├── pages/              # Route components
+├── routes/             # React Router configuration
+├── utils/              # Axios helpers & config
+└── App.tsx       
+
+
+CORS & Auth Notes
+CORS is configured on the backend to allow credentials and access from the frontend domain
+JWT Tokens are stored as HTTP-only cookies for enhanced security
+Protected routes ensure that only authenticated users access their dashboards
+
+License
+This project is licensed under the MIT License.

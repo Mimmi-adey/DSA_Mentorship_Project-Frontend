@@ -1,4 +1,4 @@
-import { Route, Routes } from "react-router-dom";
+import { Routes, Route } from "react-router-dom";
 import './App.css';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
@@ -19,6 +19,7 @@ import MentorSessions from './pages/mentor/MentorSessions';
 import MentorProfile from './pages/mentor/MentorProfile';
 import LandingPage from './pages/LandingPage';
 import CompleteProfile from "./pages/CompleteProfile";
+import GiveFeedbackPage from "./pages/GiveFeedbackPage";
 
 function App() {
   return (
@@ -46,7 +47,8 @@ function App() {
           <Route path="sessions" element={<MentorSessions />} />
           <Route path="profile" element={<MentorProfile />} />
         </Route>
-
+            <Route path="/give-feedback/:sessionId" element={
+              <GiveFeedbackPage />} />
       </Routes>
 
       {/* ✅ Toast notifications */}
